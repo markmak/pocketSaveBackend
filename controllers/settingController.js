@@ -54,7 +54,7 @@ const changeIcon = async (req, res, next) => {
   try {
     const update = await User.findOneAndUpdate(
       { _id: req.userId },
-      { img: `icon/${req.file.filename}` },
+      { img: `${req.file.filename}` },
       { new: true }
     );
     if (update) {

@@ -13,6 +13,7 @@ const errorHandleFunction = (err, req, res, next) => {
   } else if (err.code === 11000) {
     return res.status(400).json({ errMsg: "Email is already registered." });
   } else {
+    console.log(err);
     return res
       .status(500)
       .json({ errMsg: "Internal server error, please try again later." });

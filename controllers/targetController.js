@@ -17,7 +17,7 @@ const addTarget = async (req, res, next) => {
     createdBy: req.userId,
   };
   if (req.file) {
-    newTarget.img = `target/${req.file.filename}`;
+    newTarget.img = `${req.file.filename}`;
   }
   try {
     const addedTarget = await Target.create(newTarget);
@@ -80,7 +80,7 @@ const editTarget = async (req, res, next) => {
   }
   const unlinkImg = updateTarget.img;
   if (req.file) {
-    updateTarget.img = `target/${req.file.filename}`;
+    updateTarget.img = `${req.file.filename}`;
   }
   try {
     await updateTarget.save();

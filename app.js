@@ -33,7 +33,7 @@ app.use(cookieParser());
 //Multer
 const iconStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/icon/");
+    cb(null, "public/");
   },
   filename: (req, file, cb) => {
     const extension = path.extname(file.originalname);
@@ -56,7 +56,7 @@ const iconUpload = multer({
 });
 const targetStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "public/target/");
+    cb(null, "public/");
   },
   filename: (req, file, cb) => {
     const time = Date.now();
