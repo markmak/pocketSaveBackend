@@ -73,9 +73,7 @@ const removeIcon = async (req, res, next) => {
       { img: "" }
     );
     if (update) {
-      const folder = __dirname.split("\\");
-      folder.pop();
-      await fs.unlink(`${folder.join("/")}/public/${update.img}`);
+      await fs.unlink(`./public/${update.img}`);
       res.status(200).json({ msg: "icon removed." });
     } else {
       return error400(res, "Invalid user id");

@@ -85,9 +85,7 @@ const editTarget = async (req, res, next) => {
   try {
     await updateTarget.save();
     if (unlinkImg && req.file) {
-      const folder = __dirname.split("\\");
-      folder.pop();
-      await fs.unlink(`${folder.join("/")}/public/${unlinkImg}`);
+      await fs.unlink(`./public/${unlinkImg}`);
     }
     return res.status(200).json({ msg: "Target updated" });
   } catch (err) {
@@ -166,7 +164,7 @@ const removeTarget = async (req, res, next) => {
       if (target.img) {
         const folder = __dirname.split("\\");
         folder.pop();
-        await fs.unlink(`${folder.join("/")}/public/${target.img}`);
+        await fs.unlink(`./public/${target.img}`);
       }
       return res.status(200).json({ msg: "Target removed" });
     } else {
