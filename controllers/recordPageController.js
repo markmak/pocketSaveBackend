@@ -116,7 +116,7 @@ const getRecords = async (req, res, next) => {
     if (!checkDate(startDate) && startDate) {
       date.$gte = startDate;
     }
-    if (!checkDate(endDate) && startDate) {
+    if (!checkDate(endDate) && endDate) {
       date.$lte = endDate;
     }
     if (date.$gte || date.$lte) {
